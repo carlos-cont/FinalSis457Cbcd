@@ -21,9 +21,9 @@ namespace FinalSis457Cbcd.Controllers
         // GET: Series
         public async Task<IActionResult> Index()
         {
-              return _context.Series != null ? 
-                          View(await _context.Series.ToListAsync()) :
-                          Problem("Entity set 'FinalSis457CbcdContext.Series'  is null.");
+            return _context.Series != null ?
+              View(await _context.Series.Where(x => x.RegistroActivo == true).ToListAsync()) :
+              Problem("Entity set 'FinalSis457CbcdContext.Series'  is null.");
         }
 
         // GET: Series/Details/5
@@ -147,16 +147,16 @@ namespace FinalSis457Cbcd.Controllers
             var serie = await _context.Series.FindAsync(id);
             if (serie != null)
             {
-                _context.Series.Remove(serie);
+                serie.RegistroActivo = false;
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool SerieExists(int id)
         {
-          return (_context.Series?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Series?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

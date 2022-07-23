@@ -62,18 +62,14 @@ namespace FinalSis457Cbcd.Models
 
             modelBuilder.Entity<Usuario>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("Usuario");
+
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Clave)
                     .HasMaxLength(250)
                     .IsUnicode(false)
                     .HasColumnName("clave");
-
-                entity.Property(e => e.Id)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("id");
 
                 entity.Property(e => e.RegistroActivo).HasColumnName("registroActivo");
 

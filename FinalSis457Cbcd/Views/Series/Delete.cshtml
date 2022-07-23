@@ -1,13 +1,13 @@
 ﻿@model FinalSis457Cbcd.Models.Serie
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Eliminar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Delete</h1>
+<h1>Eliminar</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>¿Estás seguro de que quieres eliminar esto?</h3>
 <div>
     <h4>Serie</h4>
     <hr />
@@ -51,8 +51,8 @@
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="hidden" asp-for="Id"/>
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">>Volver a Lista</a>
     </form>
 </div>
